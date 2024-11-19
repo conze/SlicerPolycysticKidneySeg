@@ -19,7 +19,7 @@ class SlicerPKDIA(ScriptedLoadableModule):
         self.parent.title = _("SlicerPKDIA")
         self.parent.categories = [translate("qSlicerAbstractCoreModule", "Segmentation")]
         self.parent.dependencies = []
-        self.parent.contributors = ["Pierre-Henri Conze (IMT Atlantique)", "Jonathan Bouyer (Kitware SAS)"]
+        self.parent.contributors = ["Pierre-Henri Conze (IMT Atlantique)", "Jonathan Bouyer (Kitware SAS), Thibault Pelletier (Kitware SAS), Julien Finet (Kitware SAS)"]
 
         self.parent.helpText = _(
             """
@@ -29,10 +29,9 @@ class SlicerPKDIA(ScriptedLoadableModule):
             """
         )
         self.parent.acknowledgementText = _(
-            "This module is based on the "
-            '<a href="https://github.com/conze/pkdia">pkdia repository</a> '
-            "developed at "
-            '<a href="https://www.imt-atlantique.fr/fr">IMT Atlantique</a>'
+            "This work was originally funded by the "
+            '<a href="https://www.sfndt.org/">Société Francophone de Néphrologie, Dialyse et Transplantation (SNFDT)</a>.<br>'
+            "Models are trained by Pierre-Henri Conze (IMT Atlantique) from the Genkyst cohort database."
         )
 
 
