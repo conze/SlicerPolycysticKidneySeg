@@ -6,7 +6,8 @@ import os
 import nibabel
 import numpy as np
 
-from ..utils.utils import ModalityEnum, normalization_imgs
+from ..utils.modality import ModalityEnum
+from ..utils.utils import normalization_imgs
 
 
 class exam_genkyst_prod:  # PKDIAv2
