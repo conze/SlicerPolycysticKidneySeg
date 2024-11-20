@@ -6,7 +6,9 @@ from slicer.ScriptedLoadableModule import (
     ScriptedLoadableModuleTest,
     ScriptedLoadableModuleWidget,
 )
-from SlicerPKDIALib import InstallLogic, SegmentationLogic, Widget
+from SlicerPKDIALib.InstallLogic import InstallLogic
+from SlicerPKDIALib.SegmentationLogic import SegmentationLogic
+from SlicerPKDIALib.Widget import Widget
 
 
 class SlicerPKDIA(ScriptedLoadableModule):

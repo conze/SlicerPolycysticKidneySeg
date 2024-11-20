@@ -2,7 +2,7 @@ from pathlib import Path
 
 import slicer
 
-from .pkdia.utils import ModalityEnum
+from .pkdia.utils.modality import ModalityEnum
 
 
 class SegmentationLogic:

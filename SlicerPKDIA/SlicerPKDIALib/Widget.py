@@ -6,7 +6,7 @@ import qt
 import slicer
 from slicer.i18n import tr as _  # noqa
 
-from .pkdia.utils import ModalityEnum
+from .pkdia.utils.modality import ModalityEnum
 
 
 class Widget(qt.QWidget):
