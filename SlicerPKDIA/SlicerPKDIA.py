@@ -23,15 +23,16 @@ class SlicerPKDIA(ScriptedLoadableModule):
 
         self.parent.helpText = _(
             """
-            This extension allows the use of the PKDIA neural network in 3DSlicer.<br><br>
-            This neural network allows for segmentation of polycystic kidneys in T2 MRI and CT modalities.<br>
+            This extension allows the use of PKDIA neural networks in 3DSlicer.<br><br>
+            These neural networks perform polycystic kidney segmentation in T2 MR and CT imaging modalities.<br>
             The segmentation is performed on a volume loaded into 3DSlicer, and provides the results as a 3DSlicer segmentation.
             """
         )
         self.parent.acknowledgementText = _(
-            "This work was originally funded by the "
-            '<a href="https://www.sfndt.org/">Société Francophone de Néphrologie, Dialyse et Transplantation (SNFDT)</a>.<br>'
-            "Models are trained by Pierre-Henri Conze (IMT Atlantique) from the Genkyst cohort database."
+            "This work was funded by the "
+            '<a href="https://www.sfndt.org/">Société Francophone de Néphrologie, Dialyse et Transplantation (SFNDT)</a>.<br>'
+            "Models were developed and trained by Pierre-Henri Conze (IMT Atlantique) using imaging data from the Genkyst cohort."
+            "Please refer to the following paper: P.-H. Conze et al., Dual-task kidney MR segmentation with Transformers in autosomal-dominant polycystic kidney disease. Computerized Medical Imaging and Graphics, 2024."
         )
 
 
