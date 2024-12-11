@@ -4,7 +4,7 @@ project(SlicerPKDIA)
 
 #-----------------------------------------------------------------------------
 # Extension meta-information
-set(EXTENSION_HOMEPAGE "https://github.com/conze/pkdia/blob/main/README.md")
+set(EXTENSION_HOMEPAGE "https://github.com/conze/slicer-pkdia")
 set(EXTENSION_CATEGORY "Segmentation")
 set(EXTENSION_CONTRIBUTORS "Pierre-Henri Conze (IMT Atlantique), Jonathan Bouyer (Kitware SAS)")
 set(EXTENSION_DESCRIPTION "This extension allows the use of the PKDIA neural network in 3DSlicer.")
