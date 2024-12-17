@@ -4,12 +4,12 @@ project(SlicerPKDIA)
 
 #-----------------------------------------------------------------------------
 # Extension meta-information
-set(EXTENSION_HOMEPAGE "https://github.com/conze/slicer-pkdia")
+set(EXTENSION_HOMEPAGE "https://github.com/conze/SlicerPKDIA")
 set(EXTENSION_CATEGORY "Segmentation")
 set(EXTENSION_CONTRIBUTORS "Pierre-Henri Conze (IMT Atlantique), Jonathan Bouyer (Kitware SAS)")
 set(EXTENSION_DESCRIPTION "This extension allows the use of the PKDIA neural network in 3DSlicer.")
-set(EXTENSION_ICONURL "https://www.example.com/Slicer/Extensions/SlicerPKDIA.png")
-set(EXTENSION_SCREENSHOTURLS "https://github.com/conze/slicer-pkdia/blob/main/Screenshot_01.png?raw=true")
+set(EXTENSION_ICONURL "https://raw.githubusercontent.com/conze/SlicerPKDIA/main/SlicerPKDIA.png")
+set(EXTENSION_SCREENSHOTURLS "https://raw.githubusercontent.com/conze/SlicerPKDIA/main/Screenshot_01.png")
 set(EXTENSION_DEPENDS "PyTorch") # Specified as a list or "NA" if no dependencies
 
 #-----------------------------------------------------------------------------
