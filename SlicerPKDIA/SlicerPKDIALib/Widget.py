@@ -99,25 +99,26 @@ class Widget(qt.QWidget):
             errorMessage = "Invalid input volume"
         if modality not in ModalityEnum:
             errorMessage = "Invalid modality"
+        if not self.installLogic.areRequirementsInstalled():
+            errorMessage = "Missing dependencies. Please install necesary dependencies."
         if errorMessage is not None:
             self._reportError(errorMessage)
-            return
+        else:
+            try:
+                with tempfile.TemporaryDirectory() as tempDirPath:
+                    self.ui.logTextEdit.clear()
+                    self.onProgressInfo("Start")
+                    self.onProgressInfo("*" * 80)
 
-        try:
-            with tempfile.TemporaryDirectory() as tempDirPath:
-                self.ui.logTextEdit.clear()
-                self.onProgressInfo("Start")
-                self.onProgressInfo("*" * 80)
-
-                inputFileName = inputVolume.GetName() + ".nii.gz"
-                inputFilePath = Path(tempDirPath) / inputFileName
-                slicer.util.saveNode(inputVolume, str(inputFilePath))
-                self.onProgressInfo("Loading inference results...")
-                segmentationNode = self.logic.applySegmentation(str(inputFilePath), tempDirPath, modality)
-                segmentationNode.SetReferenceImageGeometryParameterFromVolumeNode(inputVolume)
-                self._reportFinished("Inference ended successfully.")
-        except RuntimeError as e:
-            self._reportError(f"Inference ended in error:\n{e}")
+                    inputFileName = "volume.nii.gz"
+                    inputFilePath = Path(tempDirPath) / inputFileName
+                    slicer.util.saveNode(inputVolume, str(inputFilePath))
+                    self.onProgressInfo("Loading inference results...")
+                    segmentationNode = self.logic.applySegmentation(str(inputFilePath), tempDirPath, modality)
+                    segmentationNode.SetReferenceImageGeometryParameterFromVolumeNode(inputVolume)
+                    self._reportFinished("Inference ended successfully.")
+            except RuntimeError as e:
+                self._reportError(f"Inference ended in error:\n{e}")
         self._setButtonsEnabled(True)
 
     def getInputVolume(self):
