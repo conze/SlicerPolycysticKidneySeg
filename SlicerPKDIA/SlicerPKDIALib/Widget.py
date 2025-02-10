@@ -109,7 +109,7 @@ class Widget(qt.QWidget):
                 self.onProgressInfo("Start")
                 self.onProgressInfo("*" * 80)
 
-                inputFileName = inputVolume.GetName() + ".nii.gz"
+                inputFileName = "volume.nii.gz"
                 inputFilePath = Path(tempDirPath) / inputFileName
                 slicer.util.saveNode(inputVolume, str(inputFilePath))
                 self.onProgressInfo("Loading inference results...")
