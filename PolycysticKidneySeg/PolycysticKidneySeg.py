@@ -11,14 +11,14 @@ from SlicerPKDIALib.SegmentationLogic import SegmentationLogic
 from SlicerPKDIALib.Widget import Widget
 
 
-class SlicerPKDIA(ScriptedLoadableModule):
+class PolycysticKidneySeg(ScriptedLoadableModule):
     """Uses ScriptedLoadableModule base class, available at:
     https://github.com/Slicer/Slicer/blob/main/Base/Python/slicer/ScriptedLoadableModule.py
     """
 
     def __init__(self, parent):
         ScriptedLoadableModule.__init__(self, parent)
-        self.parent.title = _("SlicerPKDIA")
+        self.parent.title = _("PolycysticKidneySeg")
         self.parent.categories = [translate("qSlicerAbstractCoreModule", "Segmentation")]
         self.parent.dependencies = []
         self.parent.contributors = ["Pierre-Henri Conze (IMT Atlantique)", "Jonathan Bouyer (Kitware SAS), Thibault Pelletier (Kitware SAS), Julien Finet (Kitware SAS)"]
@@ -38,7 +38,7 @@ class SlicerPKDIA(ScriptedLoadableModule):
         )
 
 
-class SlicerPKDIAWidget(ScriptedLoadableModuleWidget):
+class PolycysticKidneySegWidget(ScriptedLoadableModuleWidget):
     def __init__(self, parent=None) -> None:
         """Called when the user opens the module the first time and the widget is initialized."""
         ScriptedLoadableModuleWidget.__init__(self, parent)
@@ -53,7 +53,7 @@ class SlicerPKDIAWidget(ScriptedLoadableModuleWidget):
         self.layout.addWidget(self.widget)
 
 
-class SlicerPKDIATest(ScriptedLoadableModuleTest):
+class PolycysticKidneySegTest(ScriptedLoadableModuleTest):
     def runTest(self):
         from pathlib import Path
 

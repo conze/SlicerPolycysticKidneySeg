@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SlicerPKDIA</class>
- <widget class="qMRMLWidget" name="SlicerPKDIA">
+ <class>PolycysticKidneySeg</class>
+ <widget class="qMRMLWidget" name="PolycysticKidneySeg">
   <property name="geometry">
    <rect>
     <x>0</x>
