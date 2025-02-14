@@ -1,4 +1,4 @@
-# slicer-pkdia
+# PolycysticKidneySeg
 
 3D Slicer extension for fully automated polycystic kidneys segmentation based on "pkdia" AI model developed by Pierre-Henri Conze (IMT Atlantique) and described in
 
@@ -10,7 +10,7 @@
 
 - Start 3D Slicer
 
-- Go to `SlicerPKDIA` module
+- Go to `PolycysticKidneySeg` module
 
 - Use `Install dependencies` button if needed
 

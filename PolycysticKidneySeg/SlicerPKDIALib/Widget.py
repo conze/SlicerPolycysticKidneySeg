@@ -21,7 +21,7 @@ class Widget(qt.QWidget):
 
         layout = qt.QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
-        uiWidget = slicer.util.loadUI(self.resourcePath().joinpath("UI/SlicerPKDIA.ui").as_posix())
+        uiWidget = slicer.util.loadUI(self.resourcePath().joinpath("UI/PolycysticKidneySeg.ui").as_posix())
         uiWidget.setMRMLScene(slicer.mrmlScene)
         layout.addWidget(uiWidget)
 

@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------------------
-set(MODULE_NAME SlicerPKDIA)
+set(MODULE_NAME PolycysticKidneySeg)
 
 #-----------------------------------------------------------------------------
 set(MODULE_PYTHON_SCRIPTS
