@@ -6,6 +6,8 @@
 
 ![](Screenshot_01.png)
 
+Test files can be downloaded on the [releases page](https://github.com/conze/SlicerPKDIA/releases/).
+
 ## Tutorial
 
 - Start 3D Slicer
