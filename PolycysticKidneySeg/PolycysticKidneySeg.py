@@ -27,7 +27,8 @@ class PolycysticKidneySeg(ScriptedLoadableModule):
             """
             This extension allows the use of PKDIA neural networks in 3DSlicer.<br><br>
             These neural networks perform polycystic kidney segmentation in T2 MR and CT imaging modalities.<br>
-            The segmentation is performed on a volume loaded into 3DSlicer, and provides the results as a 3DSlicer segmentation.
+            The segmentation is performed on a volume loaded into 3DSlicer, and provides the results as a 3DSlicer segmentation.<br><br>
+            Test files can be downloaded on the <a href="https://github.com/conze/SlicerPKDIA/releases/">releases page</a>.
             """
         )
         self.parent.acknowledgementText = _(
