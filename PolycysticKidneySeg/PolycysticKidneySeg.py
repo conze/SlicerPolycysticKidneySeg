@@ -1,3 +1,5 @@
+import os
+
 import slicer
 from slicer.i18n import tr as _  # noqa
 from slicer.i18n import translate  # noqa
@@ -36,6 +38,35 @@ class PolycysticKidneySeg(ScriptedLoadableModule):
             '<a href="https://www.sfndt.org/">Société Francophone de Néphrologie, Dialyse et Transplantation (SFNDT)</a>.<br>'
             "Models were developed and trained by Pierre-Henri Conze (IMT Atlantique) using imaging data from the Genkyst cohort."
             "Please refer to the following paper: P.-H. Conze et al., Dual-task kidney MR segmentation with Transformers in autosomal-dominant polycystic kidney disease. Computerized Medical Imaging and Graphics, 2024."
+        )
+
+        slicer.app.connect("startupCompleted()", self.registerSampleData)
+
+    def registerSampleData(self):
+        import SampleData
+
+        iconsPath = os.path.join(os.path.dirname(__file__), "Resources/Icons")
+
+        SampleData.SampleDataLogic.registerCustomSampleDataSource(
+            # Category and sample name displayed in Sample Data module
+            category="PolycysticKidneySeg Sample Files",
+            sampleName="T2PolycysticKidney",
+            thumbnailFileName=os.path.join(iconsPath, "T2SampleData.png"),
+            uris="https://github.com/conze/SlicerPolycysticKidneySeg/blob/main/PolycysticKidneySeg/Resources/SampleFiles/T2SampleFile.nii.gz?raw=true",
+            fileNames="T2SampleFile.nii.gz",
+            checksums="SHA256:45eb4ef81672c4686442b4982f91635900bff2c6b7e6144b5f847a8031f873ff",
+            nodeNames="T2PolycysticKidney",
+        )
+
+        SampleData.SampleDataLogic.registerCustomSampleDataSource(
+            # Category and sample name displayed in Sample Data module
+            category="PolycysticKidneySeg Sample Files",
+            sampleName="CTPolycysticKidney",
+            thumbnailFileName=os.path.join(iconsPath, "CTSampleData.png"),
+            uris="https://github.com/conze/SlicerPolycysticKidneySeg/blob/main/PolycysticKidneySeg/Resources/SampleFiles/CTSampleFile.nii.gz?raw=true",
+            fileNames="CTSampleFile.nii.gz",
+            checksums="SHA256:293f172a02a19e41c27bf992819447bd2e5c90e61c0f2906d92edc0fd05ffb95",
+            nodeNames="CTPolycysticKidney",
         )
 
 
