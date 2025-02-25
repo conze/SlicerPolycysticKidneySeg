@@ -4,9 +4,7 @@
 
 > P.-H. Conze et al., Dual-task kidney MR segmentation with Transformers in autosomal-dominant polycystic kidney disease. Computerized Medical Imaging and Graphics, 2024.
 
-![](Screenshot_01.png)
-
-Test files can be downloaded on the [releases page](https://github.com/conze/SlicerPKDIA/releases/).
+<img src="Screenshot_01.png">
 
 ## Tutorial
 
@@ -15,6 +13,10 @@ Test files can be downloaded on the [releases page](https://github.com/conze/Sli
 - Go to `PolycysticKidneySeg` module
 
 - Use `Install dependencies` button if needed
+
+- Optional: Download provided CT and/or T2 sample data, automatically added to `Sample Data` module (section PolycysticKidneySeg Sample Files)
+
+<img src="Screenshot_02.png" width=500>
 
 - Select desired modality (T2 by default)
 
