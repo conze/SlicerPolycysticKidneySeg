@@ -4,12 +4,12 @@ project(PolycysticKidneySeg)
 
 #-----------------------------------------------------------------------------
 # Extension meta-information
-set(EXTENSION_HOMEPAGE "https://github.com/conze/SlicerPKDIA")
+set(EXTENSION_HOMEPAGE "https://github.com/conze/SlicerPolycysticKidneySeg")
 set(EXTENSION_CATEGORY "Segmentation")
 set(EXTENSION_CONTRIBUTORS "Pierre-Henri Conze (IMT Atlantique), Jonathan Bouyer (Kitware SAS)")
 set(EXTENSION_DESCRIPTION "This extension allows the use of the PKDIA neural network in 3DSlicer.")
-set(EXTENSION_ICONURL "https://raw.githubusercontent.com/conze/SlicerPKDIA/main/PolycysticKidneySeg.png")
-set(EXTENSION_SCREENSHOTURLS "https://raw.githubusercontent.com/conze/SlicerPKDIA/main/Screenshot_01.png")
+set(EXTENSION_ICONURL "https://raw.githubusercontent.com/conze/SlicerPolycysticKidneySeg/main/PolycysticKidneySeg.png")
+set(EXTENSION_SCREENSHOTURLS "https://raw.githubusercontent.com/conze/SlicerPolycysticKidneySeg/main/Screenshot_01.png")
 set(EXTENSION_DEPENDS "PyTorch") # Specified as a list or "NA" if no dependencies
 
 #-----------------------------------------------------------------------------
