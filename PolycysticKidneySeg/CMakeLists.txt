@@ -22,7 +22,7 @@ set(MODULE_PYTHON_SCRIPTS
   SlicerPKDIALib/pkdia/nets/swinv2Unet.py
   SlicerPKDIALib/pkdia/utils/__init__.py
   SlicerPKDIALib/pkdia/utils/modality.py
-  SlicerPKDIALib/pkdia/utils.utils.py
+  SlicerPKDIALib/pkdia/utils/utils.py
   )
 
 set(MODULE_PYTHON_RESOURCES
