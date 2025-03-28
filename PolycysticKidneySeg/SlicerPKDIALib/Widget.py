@@ -1,6 +1,8 @@
 import tempfile
 import traceback
 from pathlib import Path
+import urllib
+import urllib.request
 
 import qt
 import slicer
@@ -32,6 +34,7 @@ class Widget(qt.QWidget):
             self.ui.modalityComboBox.addItem(modality.value)
 
         self.ui.installButton.pressed.connect(self.onInstall)
+        self.ui.weightsButton.pressed.connect(self.onWeightsDownload)
         self.ui.applyButton.pressed.connect(self.onApply)
         self.ui.inputVolumeComboBox.setMRMLScene(slicer.mrmlScene)
 
@@ -41,6 +44,7 @@ class Widget(qt.QWidget):
 
     def _setButtonsEnabled(self, isEnabled):
         self.ui.installButton.setEnabled(isEnabled)
+        self.ui.weightsButton.setEnabled(isEnabled)
         self.ui.applyButton.setEnabled(isEnabled)
         self.ui.inputVolumeComboBox.setEnabled(isEnabled)
         self.ui.modalityComboBox.setEnabled(isEnabled)
@@ -59,6 +63,35 @@ class Widget(qt.QWidget):
                 self._reportError("Install failed.")
         self._setButtonsEnabled(True)
         return success
+
+    def onWeightsDownload(self, *, doReportFinished=True):
+        self._setButtonsEnabled(False)
+
+        if doReportFinished:
+            self.onProgressInfo("*" * 80)
+            self.onProgressInfo("Downloading weights")
+
+        weightURLs = {
+            ModalityEnum.T2: "https://github.com/conze/SlicerPolycysticKidneySeg/releases/download/v.1.1.0/PKDIAv1-weights.pth",
+            ModalityEnum.CT: "https://github.com/conze/SlicerPolycysticKidneySeg/releases/download/v.1.1.0/PKDIAv2-weights.pth"
+        }
+        success = True
+        for modality in ModalityEnum:
+            weightURL = weightURLs[modality]
+            weightPath = self.logic.weightsPaths[modality]
+            try:
+                weightPath.parent.mkdir(parents=True, exist_ok=True)
+                urllib.request.urlretrieve(weightURL, weightPath)
+            except (urllib.error.HTTPError, urllib.error.URLError):
+                success = False
+
+        if doReportFinished:
+            if success:
+                self._reportFinished("Successfully downloaded weights")
+            else:
+                self._reportError("Failed to download weights")
+
+        self._setButtonsEnabled(True)
 
     def _reportError(self, msg, doTraceback=True):
         translatedMsg = _(msg)
@@ -90,6 +123,11 @@ class Widget(qt.QWidget):
 
     def onApply(self):
         self._setButtonsEnabled(False)
+
+        self.ui.logTextEdit.clear()
+        self.onProgressInfo("Start")
+        self.onProgressInfo("*" * 80)
+
         errorMessage = None
 
         modality = self.getModality()
@@ -101,15 +139,13 @@ class Widget(qt.QWidget):
             errorMessage = "Invalid modality"
         if not self.installLogic.areRequirementsInstalled():
             errorMessage = "Missing dependencies. Please install necesary dependencies."
+        if not self.logic.areWeightsFound():
+            errorMessage = f"Could not find weights at {self.logic.weightsDir}. Please download them."
         if errorMessage is not None:
             self._reportError(errorMessage)
         else:
             try:
                 with tempfile.TemporaryDirectory() as tempDirPath:
-                    self.ui.logTextEdit.clear()
-                    self.onProgressInfo("Start")
-                    self.onProgressInfo("*" * 80)
-
                     inputFileName = "volume.nii.gz"
                     inputFilePath = Path(tempDirPath) / inputFileName
                     slicer.util.saveNode(inputVolume, str(inputFilePath))
