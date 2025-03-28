@@ -8,13 +8,19 @@ from .pkdia.utils.modality import ModalityEnum
 class SegmentationLogic:
     def __init__(self):
         fileDir = Path(__file__).parent
-        weightsDir = fileDir / "pkdia" / "weights"
+        self.weightsDir = fileDir.parent / "weights"
         self.weightsPaths = {
-            ModalityEnum.T2: weightsDir / "PKDIAv1-weights.pth",
-            ModalityEnum.CT: weightsDir / "PKDIAv2-weights.pth",
+            ModalityEnum.T2: self.weightsDir / "PKDIAv1-weights.pth",
+            ModalityEnum.CT: self.weightsDir / "PKDIAv2-weights.pth",
         }
 
         self.segmentColors = [(0.7, 0.4, 0.3), (0.8, 0.3, 0.3)]
+
+    def areWeightsFound(self):
+        for weightPath in self.weightsPaths.values():
+            if not weightPath.exists():
+                return False
+        return True
 
     def applySegmentation(self, inputFilePath, outputFolder, modality):
         from .pkdia.PKDIA import applyPKDIA

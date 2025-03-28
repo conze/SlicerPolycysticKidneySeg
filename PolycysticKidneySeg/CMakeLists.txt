@@ -30,8 +30,6 @@ set(MODULE_PYTHON_SCRIPTS
 set(MODULE_PYTHON_RESOURCES
   Resources/Icons/${MODULE_NAME}.png
   Resources/UI/${MODULE_NAME}.ui
-  SlicerPKDIALib/pkdia/weights/PKDIAv1-weights.pth
-  SlicerPKDIALib/pkdia/weights/PKDIAv2-weights.pth
   )
 
 #-----------------------------------------------------------------------------

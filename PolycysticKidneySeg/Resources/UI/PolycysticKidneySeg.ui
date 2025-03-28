@@ -24,6 +24,13 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="weightsButton">
+        <property name="text">
+         <string>Download weights</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -146,10 +153,12 @@
  </customwidgets>
  <tabstops>
   <tabstop>installCollapsibleButton</tabstop>
-  <tabstop>installCollapsibleButton_2</tabstop>
   <tabstop>installButton</tabstop>
+  <tabstop>weightsButton</tabstop>
+  <tabstop>installCollapsibleButton_2</tabstop>
   <tabstop>modalityComboBox</tabstop>
   <tabstop>applyButton</tabstop>
+  <tabstop>logTextEdit</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -14,6 +14,8 @@
 
 - Use `Install dependencies` button if needed
 
+- Use `Download weights` button if needed
+
 - Optional: Download provided CT and/or T2 sample data, automatically added to `Sample Data` module (section PolycysticKidneySeg Sample Files)
 
 <img src="Screenshot_02.png" width=500>
