@@ -29,6 +29,8 @@ set(MODULE_PYTHON_SCRIPTS
 
 set(MODULE_PYTHON_RESOURCES
   Resources/Icons/${MODULE_NAME}.png
+  Resources/Icons/T2SampleData.png
+  Resources/Icons/CTSampleData.png
   Resources/UI/${MODULE_NAME}.ui
   )
 
